@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+<<<<<<< HEAD
 void print(int **edges,int e,int sv)
 {
 	bool *visited = new bool[n];
@@ -9,6 +10,9 @@ void print(int **edges,int e,int sv)
     }
     print(edges,n,sv,visited);
 }
+=======
+// this is part of a feature1 branch
+>>>>>>> feature1
 void print(int **edges,int e,int sv,bool *visited){
     cout<<sv;
     visited[sv]=true;
