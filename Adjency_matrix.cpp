@@ -1,14 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-void print(int **edges,int n,int sv)
-{
-	bool *visited = new bool[n];
-    for(int i=0;i<n;i++)
-    {
-        visited[i]=false;
-    }
-    print(edges,n,0,visited);
-}
 void print(int **edges,int e,int sv,bool *visited){
     cout<<sv;
     visited[sv]=true;
@@ -46,6 +37,11 @@ int main()
         edges[f][s] = 1;
         edges[s][f]  = 1;
     }
-    print(edges,n,0);
+    bool *visited = new bool[n];
+    for(int i=0;i<n;i++)
+    {
+        visited[i]=false;
+    }
+    print(edges,n,0,visited);
     return 0;
 }
