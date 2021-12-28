@@ -48,6 +48,43 @@ class graph
 			} 
 			return true;
 		}
+		bool bipartiteDFS(int i,int par,int *col)
+		{
+			if(par==-1)
+			col[i]=1;
+			else
+			{
+				if(col[par]==1)
+				col[i]=0;
+				else
+				col[i]=1;
+			}
+			for(auto it:edge[i])
+			{
+				if(col[i]==-1)
+				{
+					bool ans = bipartiteDFS(it,i,col);
+					if(ans==false)
+					return false;	
+				}
+				else
+				{
+					if(col[i]==col[it])
+					return false;
+				}
+			}
+			return true;
+		}
+		bool bipartiteDFS()
+		{
+			int *col;
+			col = new int[v];
+			for(int i=0;i<v;i++)
+			{
+				col[i] = -1;
+			}
+			return bipartiteDFS(0,-1,col);
+		}
 };
 int main()
 {
@@ -56,10 +93,11 @@ int main()
 	g.addEdge(2-1,3-1);
 	g.addEdge(2-1,8-1);
 	g.addEdge(3-1,4-1);
-	g.addEdge(8-1,7-1);
-	g.addEdge(7-1,5-1);
+	g.addEdge(8-1,5-1);
+//	g.addEdge(7-1,5-1);
 	g.addEdge(4-1,5-1);
 	g.addEdge(5-1,6-1);
-	cout<<g.bipartite();
+	g.addEdge(6-1,7-1);
+	cout<<g.bipartiteDFS();
 	return 0;
 }
