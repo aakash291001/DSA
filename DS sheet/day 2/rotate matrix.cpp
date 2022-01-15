@@ -23,6 +23,24 @@ void rotate(vector<vector<int>>& A) {
         }
     }
 }
+void rotate2(vector<vector<int>>& A) {
+    int n = A.size(); 
+    int B[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            B[j][n-1-i] = A[i][j];
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            A[i][j]=B[i][j];
+        }
+    }
+}
 int main()
 {
     vector<vector<int>> matrix{{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
